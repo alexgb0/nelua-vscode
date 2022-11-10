@@ -8,6 +8,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Initial release
 
+
+## [0.0.6] - 2022-11-10
+
+### Added
+
+- Autocompletion for builtins
+- Autocompletion for types.
+ 
 ## [0.0.5] - 2022-11-10
 
 ### Added

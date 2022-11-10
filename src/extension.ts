@@ -5,6 +5,8 @@
 import * as vscode from 'vscode';
 import { keywords } from './keywords';
 import { consts } from './consts';
+import { types } from './types';
+import { builtin } from './built';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -12,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 
-			return keywords.concat(consts);
+			return keywords.concat(consts).concat(types).concat(builtin);
 		}
 	}); 
 
@@ -43,7 +45,31 @@ export function activate(context: vscode.ExtensionContext) {
                 const new_scope = new vscode.CompletionItem("scope", vscode.CompletionItemKind.Snippet);
                 new_scope.insertText = new vscode.SnippetString("do\n\t$1\nend")
 
-                return [fun, types, types_empty, if_snip, if_else_snip, if_elseif_snip, switch_snip]
+                const goto_snip = new vscode.CompletionItem("goto", vscode.CompletionItemKind.Snippet);
+                goto_snip.insertText = new vscode.SnippetString("goto $1\n$2\n::$1::")
+
+                const while_snip = new vscode.CompletionItem("while", vscode.CompletionItemKind.Snippet);
+                while_snip.insertText = new vscode.SnippetString("while $1 do\n\t$2\nend")
+
+                const repeat = new vscode.CompletionItem("repeat", vscode.CompletionItemKind.Snippet);
+                repeat.insertText = new vscode.SnippetString("repeat\n\t$3\n\tlocal $1 = $2\nuntil $1")
+
+                const anon_fn = new vscode.CompletionItem("anon function", vscode.CompletionItemKind.Snippet);
+                anon_fn.insertText = new vscode.SnippetString("function($1: $2): $3 $4 end")
+
+                return [
+                    fun, 
+                    types, 
+                    types_empty, 
+                    if_snip, 
+                    if_else_snip, 
+                    if_elseif_snip, 
+                    switch_snip, 
+                    goto_snip, 
+                    while_snip,
+                    repeat,
+                    anon_fn
+                ]
 			}
 		},
 	);
