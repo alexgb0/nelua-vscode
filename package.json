@@ -1,4 +1,5 @@
 {
+    "publisher": "alexgb",
     "name": "nelua",
     "displayName": "nelua",
     "description": "Nelua better syntax highlighting, basic code completion, and snippets for Visual Studio Code.",
