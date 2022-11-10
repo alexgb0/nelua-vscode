@@ -3,12 +3,49 @@
  *--------------------------------------------------------*/
 
 import * as vscode from 'vscode';
+import * as cp from "child_process"
+
 import { keywords } from './keywords';
 import { consts } from './consts';
 import { types } from './types';
 import { builtin } from './built';
+import { mods } from './mods';
+import { stderr, stdout } from 'process';
 
 export function activate(context: vscode.ExtensionContext) {
+
+    /*
+        NOTE: Maybe is not the best way to do it but it works for now.
+        https://github.com/microsoft/vscode-extension-samples/tree/main/task-provider-sample
+        that shit is super complicated for our scope (RIGHT NOW), we want ONLY execute a command in a console and get it's output.
+    */
+    context.subscriptions.push(
+        vscode.commands.registerCommand("agb.nelua.buildrun", () => {
+            if (!vscode.window.activeTextEditor!.document.isUntitled)
+            {
+                const path = vscode.window.activeTextEditor!.document.uri.fsPath
+
+                cp.exec(`nelua run ${path}`, (error, stdout, stderr) => {
+                    if (error)
+                    {
+                        vscode.window.showErrorMessage("Something went wrong when compling")
+                        console.log(error)
+                    }
+                    else
+                        console.log(stdout);
+                })
+            }
+        })
+    );
+
+    const build_run = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
+    build_run.name = "Nelua Build and Run"
+    build_run.text = "Nelua Build and run"
+    build_run.tooltip = "Builds and runs the current file"
+    build_run.command = "agb.nelua.buildrun"
+    build_run.show();
+
+    context.subscriptions.push(build_run);
 
 	const basic = vscode.languages.registerCompletionItemProvider('nelua', {
 
@@ -16,7 +53,22 @@ export function activate(context: vscode.ExtensionContext) {
 
 			return keywords.concat(consts).concat(types).concat(builtin);
 		}
-	}); 
+	});
+
+    const require_prov = vscode.languages.registerCompletionItemProvider('nelua', {
+
+		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+
+
+            const linePrefix = document.lineAt(position).text.substr(0, position.character);
+            if (!linePrefix.endsWith('require "')) {
+                return undefined;
+            }
+
+            return mods
+		}
+    }, `"`); 
+
 
 	const snippets = vscode.languages.registerCompletionItemProvider('nelua',
 		{
@@ -75,5 +127,5 @@ export function activate(context: vscode.ExtensionContext) {
 	);
 
 
-	context.subscriptions.push(basic, snippets);
+	context.subscriptions.push(basic, snippets, require_prov);
 }

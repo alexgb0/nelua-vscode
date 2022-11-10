@@ -3,8 +3,11 @@
     "name": "nelua",
     "displayName": "nelua",
     "description": "Nelua better syntax highlighting, basic code completion, and snippets for Visual Studio Code.",
-    "version": "0.0.6",
-    "repository": { "url": "https://github.com/alexgb0/nelua-vscode" },
+    "version": "0.0.8",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alexgb0/nelua-vscode" 
+    },
     "icon": "./icon.png",
     "engines": {
         "vscode": "^1.32.0"
@@ -23,6 +26,12 @@
 		"watch": "tsc -watch -p ./"
 	},
     "contributes": {
+        "commands":[
+            {
+                "command": "agb.nelua.buildrun",
+                "title": "Nelua: Builds current file and runs it"
+            }
+        ],
         "markdown.previewScripts": ["./highlightjs-nelua.js"],
         "languages": [{
             "id": "nelua",

@@ -5,7 +5,7 @@ Nelua better syntax highlighting, basic code completion, and snippets for Visual
 ## Features
 
 ### Completion
-Code completion for `keywords`, `builtin functions`, `constants`, and types.
+Code completion for `keywords`, `builtin functions`, `constants`, `types`, and `modules`.
 
 ### Snippets
 
@@ -19,6 +19,10 @@ Code completion for `keywords`, `builtin functions`, `constants`, and types.
 8.  **Repeat** with local variable declaration.
 9.  **Anonymous** function declaration.
 
+### Screenshots
+
+![code completion for modules](eg_1.jpg)
+
 ## Installing
 
 Install the extension [nelua](https://marketplace.visualstudio.com/items?itemName=alexgb.nelua) or clone this repository into ~/.vscode/extensions/ and restart vscode.
@@ -26,8 +30,9 @@ Install the extension [nelua](https://marketplace.visualstudio.com/items?itemNam
 ## Todo
 
 - [X] More snippets.
-- [ ] Add competition to require.
+- [X] Add competition to require.
 - [ ] Add module completation.
 - [ ] Add documentation to code completion and signatures to the functions.
-- [ ] Add run and debugging tasks.
+- [X] Add run tasks.
+- [ ] Add run task for windows
 - [ ] Implement semantic highlighting.
