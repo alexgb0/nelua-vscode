@@ -3,7 +3,7 @@
     "name": "nelua",
     "displayName": "nelua",
     "description": "Nelua better syntax highlighting, basic code completion, and snippets for Visual Studio Code.",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "repository": {
         "type": "git",
         "url": "https://github.com/alexgb0/nelua-vscode" 

@@ -61,13 +61,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 
             const linePrefix = document.lineAt(position).text.substr(0, position.character);
-            if (!linePrefix.endsWith('require "')) {
-                return undefined;
+
+            if (linePrefix.endsWith('require "') || linePrefix.endsWith(`require '`)) {
+                return mods
             }
 
-            return mods
+            return undefined;
+
 		}
-    }, `"`); 
+    }, `"`, `'`); 
 
 
 	const snippets = vscode.languages.registerCompletionItemProvider('nelua',
