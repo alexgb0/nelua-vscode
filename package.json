@@ -1,8 +1,8 @@
 {
     "name": "nelua",
     "displayName": "nelua",
-    "description": "Nelua programming language syntax",
-    "version": "0.0.1",
+    "description": "Nelua better syntax highlighting, basic code completion, and snippets for Visual Studio Code.",
+    "version": "0.0.5",
     "engines": {
         "vscode": "^1.31.0"
     },
