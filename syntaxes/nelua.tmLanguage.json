@@ -271,6 +271,10 @@
 		{
 			"match": "\\+|-|%|#|\\*|\\/|\\^|==?|~=|<=?|>=?|(?<!\\.)\\.{2}(?!\\.)",
 			"name": "keyword.operator.nelua"
+		},
+		{
+			"match": "(char|uchar|int|uint|int16|uint16|int32|uint32|int64|uint64|isize|usize|float|double|ptr|typed|untyped|void|string)",
+			"name": "support.type"
 		}
 	],
 	"repository": {

@@ -7,3 +7,15 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [Unreleased]
 
 - Initial release
+
+## [0.0.5] - 2022-11-10
+
+### Added
+
+- Autocompletion for keywords.
+- Autocompletion for constants.
+- Basic snippets.
+
+### Changed
+
+- Added syntax highlighting to types.
