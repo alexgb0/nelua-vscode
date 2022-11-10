@@ -3,8 +3,9 @@
     "displayName": "nelua",
     "description": "Nelua better syntax highlighting, basic code completion, and snippets for Visual Studio Code.",
     "version": "0.0.5",
+    "repository": { "url": "https://github.com/alexgb0/nelua-vscode" },
     "engines": {
-        "vscode": "^1.31.0"
+        "vscode": "^1.32.0"
     },
     "categories": [
         "Programming Languages"
