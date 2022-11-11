@@ -10,7 +10,7 @@ import { consts } from './consts';
 import { types } from './types';
 import { builtin } from './built';
 import { mods } from './mods';
-import { stderr, stdout } from 'process';
+import { libs } from './libs/libs';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 
-			return keywords.concat(consts).concat(types).concat(builtin);
+			return keywords.concat(consts).concat(types).concat(builtin).concat(libs);
 		}
 	});
 
@@ -62,7 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
 
             const linePrefix = document.lineAt(position).text.substr(0, position.character);
 
-            if (linePrefix.endsWith('require "') || linePrefix.endsWith(`require '`)) {
+            if (linePrefix.endsWith(`require "`) || linePrefix.endsWith(`require '`)) {
                 return mods
             }
 

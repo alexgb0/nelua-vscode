@@ -63,6 +63,7 @@ The file stream library provides the filestream record, mostly used by the [\`io
 	io_mod.documentation = docs;
 	docs.baseUri = vscode.Uri.parse('https://nelua.io/libraries/#filestream');
 
+
 	return io_mod;
 }
 

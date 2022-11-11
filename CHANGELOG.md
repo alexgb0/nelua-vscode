@@ -8,6 +8,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Initial release
 
+## [0.1.0] - 2022-11-12
+
+### Added
+
+- basic auto completion for functions
+
 ## [0.0.9] - 2022-11-11
 
 ### Changed

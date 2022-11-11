@@ -20,7 +20,7 @@ Code completion for `keywords`, `builtin functions`, `constants`, `types`, and `
 9.  **Anonymous** function declaration.
 
 ### Screenshots
-
+*Make sure to click the arrow `>` to open the docs!
 ![code completion for modules](eg_1.jpg)
 
 ## Installing
@@ -35,4 +35,5 @@ Install the extension [nelua](https://marketplace.visualstudio.com/items?itemNam
 - [ ] Add documentation to code completion and signatures to the functions.
 - [X] Add run tasks.
 - [ ] Add run task for windows
+- [ ] Add syntax highlighting to types in the function
 - [ ] Implement semantic highlighting.

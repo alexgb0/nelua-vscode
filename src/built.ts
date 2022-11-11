@@ -5,7 +5,6 @@ import * as vscode from 'vscode';
  */
 
 export const builtin = [
-    new vscode.CompletionItem("require", vscode.CompletionItemKind.Function),
     new vscode.CompletionItem("coroutine", vscode.CompletionItemKind.Function),
     new vscode.CompletionItem("resume", vscode.CompletionItemKind.Function),
     new vscode.CompletionItem("status", vscode.CompletionItemKind.Function),
