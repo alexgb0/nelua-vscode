@@ -291,7 +291,7 @@
 			}
 		},
 		{
-			"match": "(\\b|:)(float32|float64|number)\\b",
+			"match": "(\\b|:)(float32|float64|float128|number)\\b",
 			"captures": {
 				"2": {"name": "support.type.float"}
 			}
