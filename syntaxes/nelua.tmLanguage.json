@@ -273,8 +273,34 @@
 			"name": "keyword.operator.nelua"
 		},
 		{
-			"match": "(char|uchar|int|uint|int16|uint16|int32|uint32|int64|uint64|isize|usize|float|double|ptr|typed|untyped|void|string)",
-			"name": "support.type"
+			"match": "(\\b|:)(char|uchar|boolean|byte)\\b",
+			"captures": {
+				"2": {"name": "support.type.byte"}
+			}
+		},
+		{
+			"match": "(\\b|:)(integer|uinteger|uint|uint8|int16|uint16|int32|uint32|int64|uint64|int128|uint128)\\b",
+			"captures": {
+				"2": {"name": "support.type.int"}
+			}
+		},
+		{
+			"match": "(\\b|:)(isize|usize)\\b",
+			"captures": {
+				"2": {"name": "support.type.size"}
+			}
+		},
+		{
+			"match": "(\\b|:)(float32|float64|float128|number)\\b",
+			"captures": {
+				"2": {"name": "support.type.float"}
+			}
+		},
+		{
+			"match": "(\\b|:)(pointer|type|typetype|void|auto|string)\\b",
+			"captures": {
+				"2": {"name": "support.type.other"}
+			}
 		}
 	],
 	"repository": {
